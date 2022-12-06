@@ -1,5 +1,7 @@
 package com.cannabank.cannabank.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +24,9 @@ public class Transaction {
 
     @Column(name = "account_number")
     private String accountNumber;
+
+    @Column(name = "date")
+    private LocalDate date;
 
     public Transaction() {
     }
@@ -64,4 +69,11 @@ public class Transaction {
         this.accountNumber = accountNumber;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate localDate) {
+        this.date = localDate;
+    }
 }

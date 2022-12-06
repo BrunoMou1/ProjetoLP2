@@ -38,6 +38,7 @@ public class TransactionController {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userRepository.findById(userDetails.getId()).get();
         Account accountTo = accountRepository.findByAccountNumber(transaction.getAccountNumber());
+        transaction.setDate(java.time.LocalDate.now());
         if (user.getAccount().getBalance() >= transaction.getAmount()) {
             user.getAccount().setBalance(user.getAccount().getBalance() -
                     transaction.getAmount());
